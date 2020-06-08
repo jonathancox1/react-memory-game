@@ -1,11 +1,55 @@
 .Card {
-    max-width: 30%;
+    width: 150px;
+    height: 80px;
     border-radius: 5px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
     padding: 10px;
-    margin: 10px;
+    margin: 3px;
+    background: repeating-linear-gradient( 45deg, rgb(191, 191, 191), rgb(191, 191, 191) 10px, darkgrey 10px, darkgrey 20px);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+img {
+    width: 60px;
+    padding: 10px;
 }
 
 .Card:hover {
-    color: green;
+    transform: scale(1.1);
+    border: 2px solid black;
+    background: repeating-linear-gradient( 140deg, lightgrey, lightgrey 10px, rgb(145, 233, 177) 10px, rgb(145, 233, 177) 20px);
 }
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.Card:hover>img {
+    transform: scaleX(-1);
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+/* @keyframes flip {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(-1);
+    }
+}
+
+.Card:hover {
+    -webkit-animation-name: flip;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+} */

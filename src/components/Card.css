@@ -1,12 +1,6 @@
-.Card {
-    width: 150px;
-    height: 80px;
-    border-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    margin: 3px;
+.Card_back {
+    padding: 8px;
     background: repeating-linear-gradient( 45deg, rgb(191, 191, 191), rgb(191, 191, 191) 10px, darkgrey 10px, darkgrey 20px);
-    cursor: pointer;
     transition: all .2s ease-in-out;
 }
 
@@ -15,9 +9,10 @@ img {
     padding: 10px;
 }
 
-.Card:hover {
+.Card_back:hover {
     transform: scale(1.1);
-    border: 2px solid black;
+    border-radius: 5px;
+    border: 3px solid black;
     background: repeating-linear-gradient( 140deg, lightgrey, lightgrey 10px, rgb(145, 233, 177) 10px, rgb(145, 233, 177) 20px);
 }
 
@@ -30,7 +25,7 @@ img {
     }
 }
 
-.Card:hover>img {
+.Card_back:hover>img {
     transform: scaleX(-1);
     -webkit-animation-name: spin;
     -webkit-animation-duration: 1000ms;
@@ -38,18 +33,42 @@ img {
     -webkit-animation-timing-function: linear;
 }
 
-/* @keyframes flip {
-    from {
-        transform: scaleX(1);
-    }
-    to {
-        transform: scaleX(-1);
-    }
+.Card {
+    width: 150px;
+    height: 80px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    outline: none;
 }
 
-.Card:hover {
-    -webkit-animation-name: flip;
-    -webkit-animation-duration: 500ms;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: linear;
-} */
+.Card_inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 5px;
+    border: 3px solid black;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    outline: none;
+}
+
+.Card_front, .Card_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.Card_front {
+    background-color: white;
+    font-size: 30px;
+    padding-top: 15px;
+    transform: rotateY(180deg);
+}
+
+.Card_inner.flipped {
+    transform: rotateY(180deg);
+}

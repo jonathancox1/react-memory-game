@@ -117,7 +117,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Test Your Memory</h1>
           <small>can you find the match?</small>
-          <small>{this.state.matched === 2 ? <button onClick={this.gameOver}>You've Won Play Again?</button> : this.state.matched + ' out of 8'}</small>
+          <small>{this.state.matched === 8 ? <button onClick={this.gameOver}>You've Won Play Again?</button> : this.state.matched + ' out of 8'}</small>
         </header>
         <div id="wide">{cardsJSX.slice(0, 4)}</div>
         <br></br>

@@ -64,8 +64,8 @@ img {
 
 .Card_front {
     background-color: white;
-    font-size: 30px;
-    padding-top: 15px;
+    font-size: 50px;
+    /* padding-top: 5px; */
     transform: rotateX(180deg);
 }
 

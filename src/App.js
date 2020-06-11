@@ -98,9 +98,7 @@ class App extends Component {
   }
 
   gameOver = () => {
-    if (this.state.matched === 2) {
-      setTimeout(() => { this.setState({ deck: generateDeck(), matched: 0 }) }, 20);
-    }
+    setTimeout(() => { this.setState({ deck: generateDeck(), matched: 0 }) }, 1000);
   }
 
 

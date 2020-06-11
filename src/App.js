@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './components/Card';
-import { render } from '@testing-library/react';
+import { Button, Col, Row } from '../node_modules/react-bootstrap'
 
 
 // generate deck
 function generateDeck() {
-  const symbols = ['∆', 'ß', '£', '§', '•', '$', '+', 'ø'];
+  const symbols = ['🥐', '🌮', '🍺', '🧈', '🧀', '🍤', '🥃', '🍕'];
   let deck = [];
   for (let i = 0; i <= 15; i++) {
     deck.push({
@@ -113,22 +113,19 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Test Your Memory</h1>
-          <small>can you find the match?</small>
-          <small>{this.state.matched === 8 ? <button onClick={this.gameOver}>You've Won Play Again?</button> : this.state.matched + ' out of 8'}</small>
-        </header>
-        <div id="wide">{cardsJSX.slice(0, 4)}</div>
-        <br></br>
-        <div id="wide">{cardsJSX.slice(4, 8)}</div>
-        <br></br>
-        <div id="wide">{cardsJSX.slice(8, 12)}</div>
-        <br></br>
-        <div id="wide">{cardsJSX.slice(12, 16)}</div>
-        <br></br>
-        {/* <button className={toggle} onClick={this.gameOver}>You've Won! Play Again?</button> */}
-      </div >
+      <Col className="Col">
+        <div className="App">
+          <header className="App-header">
+            <h1>Test Your Memory</h1>
+            <small>can you find the match?</small>
+            <small>{this.state.matched === 8 ? <Button variant="success" onClick={this.gameOver}>You've Won Play Again?</Button> : this.state.matched + ' out of 8'}</small>
+          </header>
+          <Row className="Row">{cardsJSX.slice(0, 4)}</Row>
+          <Row className="Row">{cardsJSX.slice(4, 8)}</Row>
+          <Row className="Row">{cardsJSX.slice(8, 12)}</Row>
+          <Row className="Row">{cardsJSX.slice(12, 16)}</Row>
+        </div >
+      </Col>
     )
   }
 }
